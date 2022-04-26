@@ -44,11 +44,31 @@
                 <div class="text-white">
                     <ul
                         class="transition-all duration-500 uppercase text-lg gap-10 font-Poppins font-semibold hidden md:flex">
-                        <li><a href="#" class="text-tomato transition-all duration-500">home</a></li>
-                        <li><a href="#" class="hover:text-tomato transition-all duration-500">product</a></li>
-                        <li><a href="#" class="hover:text-tomato transition-all duration-500">promo</a></li>
-                        <li><a href="#" class="hover:text-tomato transition-all duration-500">about</a></li>
-                        <li><a href="#" class="hover:text-tomato transition-all duration-500">contact</a></li>
+                        <li>
+                            <a href="javascript:void(0);"
+                                class="menu-link hover:ring-2 transition-all ring-2 py-2 px-5 rounded-full bg-tomato ring-tomato"
+                                data-id="#hero-div">home</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);"
+                                class="menu-link hover:ring-2 py-2 px-5 rounded-full ring-tomato transition-all"
+                                data-id="#chef-div">Our Chef</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);"
+                                class="menu-link hover:ring-2 py-2 px-5 rounded-full ring-tomato transition-all"
+                                data-id="#products-div">Products</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);"
+                                class="menu-link hover:ring-2 py-2 px-5 rounded-full ring-tomato transition-all"
+                                data-id="#statistics-div">Statistics</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);"
+                                class="menu-link hover:ring-2 py-2 px-5 rounded-full ring-tomato transition-all"
+                                data-id="#packages-div">Popular Packages</a>
+                        </li>
                     </ul>
                     <a href="javascript:void(0);" class="transition-all duration-500 md:hidden"
                         id="mobile-menu-toggle"><i class="fas fa-bars"></i></a>
@@ -58,7 +78,7 @@
     </header>
 
     <!-- Hero Section -->
-    <div class="relative">
+    <div class="relative" id="hero-div">
         <div>
             <img src="images/hero-img.jpg" alt="" class="w-full">
         </div>
@@ -83,7 +103,7 @@
     </div>
 
     <!-- Chefs Section -->
-    <div class="md:py-[100px] py-[50px] bg-cream relative">
+    <div class="md:py-[100px] py-[50px] bg-cream relative" id="chef-div">
         <div class="absolute top-0 left-0 right-0 bottom-0 hidden md:block z-0">
             <div class="absolute top-20 right-10">
                 <img src="images/Vector Smart Object.png" alt="">
@@ -139,7 +159,7 @@
     </div>
 
     <!-- Burger Section -->
-    <div class="md:py-[100px] py-[50px] bg-tomato">
+    <div class="md:py-[100px] py-[50px] bg-tomato" id="products-div">
         <div class="container mx-auto px-5">
             <div class="flex flex-col justify-evenly md:flex-row gap-[50px] md:max-w-[80%] mx-auto">
                 <div class="md:w-1/2 flex md:justify-start justify-center">
@@ -209,7 +229,7 @@
     </div>
 
     <!-- Statistics Section -->
-    <div class="md:py-[100px] py-[50px] bg-tomato relative">
+    <div class="md:py-[100px] py-[50px] bg-tomato relative" id="statistics-div">
         <div class="container px-5 flex flex-col items-center justify-center text-center gap-5 text-white mx-auto ">
             <h2 class="font-Archivo font-bold text-[50px]">Statistics</h2>
             <p class="text-[22px] md:w-1/2 font-Monteserrat">Lorem ipsum dolor sit amet, consectetur adipiscing
@@ -238,7 +258,7 @@
     </div>
 
     <!-- Package Section -->
-    <div class="md:py-[100px] py-[50px] bg-cream relative">
+    <div class="md:py-[100px] py-[50px] bg-cream relative" id="packages-div">
         <div class="absolute top-0 left-0 right-0 bottom-0 hidden md:block z-0">
             <div class="absolute top-20 right-10">
                 <img src="images/Vector Smart Object.png" alt="">
@@ -424,6 +444,14 @@
                 e.preventDefault();
                 $('#mobile-menu').slideToggle();
                 // $('#mobile-menu-toggle i').toggleClass("fas fa-close");
+            });
+            $('.menu-link').click(function (e) {
+                e.preventDefault();
+                $('.menu-link').removeClass('bg-tomato ring-2');
+                $(this).addClass('bg-tomato ring-2');
+                $('html, body').animate({
+                    scrollTop: $($(this).attr('data-id')).offset().top - $('header').height(),
+                }, 0);
             });
         });
     </script>
